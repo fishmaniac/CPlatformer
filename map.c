@@ -22,7 +22,7 @@ void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
     tileMap[4][5].type = 2;
 }
 
-void renderMap(SDL_Renderer* renderer, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+void renderMap(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
     for (int y = 0; y < MAP_HEIGHT; y++) {
         for (int x = 0; x < MAP_WIDTH; x++) {
             Tile tile = tileMap[y][x];
@@ -35,9 +35,13 @@ void renderMap(SDL_Renderer* renderer, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
                 color = (SDL_Color){0, 0, 0, 255}; // Black for empty tiles
             }
 
-            // Render the tile as a filled rectangle
-            SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-            SDL_RenderFillRect(renderer, &tile.rect);
+            // Render relative to camera
+            // (&tile.rect)->x = player->x;
+            // (&tile.rect)->y = player->y;
+            tile.rect.x -= (game->camX);
+            tile.rect.y -= (game->camY);
+            SDL_SetRenderDrawColor(game->renderer, color.r, color.g, color.b, color.a);
+            SDL_RenderFillRect(game->renderer, &tile.rect);
         }
     }
 }

@@ -25,14 +25,15 @@ void blitAnimated(Game_s *game, Entity *player) {
 	src.w = player->w;                // Width of the source frame
 	src.h = player->h;               // Height of the source frame
 
-	dest.x = player->x;
-	dest.y = player->y;
+	dest.x = player->x - game->camX;
+	dest.y = player->y - game->camY;
+
 	dest.w = src.w * player->scaling;
 	dest.h = src.h * player->scaling;
 	player->w *= player->scaling;
 	player->h *= player->scaling;
 
-	SDL_RenderCopy(game->renderer, player->texture, &src, &dest);	
+	SDL_RenderCopy(game->renderer, player->texture, &src, &dest);
 }
 
 bool checkCollision(Entity *rect1, Entity *rect2) {

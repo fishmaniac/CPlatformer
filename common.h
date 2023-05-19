@@ -20,4 +20,6 @@
 
 #define MAP_WIDTH 200
 #define MAP_HEIGHT 30
-#define TILE_SIZE 64
+#define TILE_SIZE 32
+
+#define CAMERA_SPEED 10

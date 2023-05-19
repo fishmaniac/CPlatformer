@@ -11,6 +11,7 @@
 typedef struct {
 	SDL_Renderer *renderer;
 	SDL_Window *window;
+	SDL_Rect camera;
 	bool up, down, left, right, jump, fire; 
 	int jumpDuration, camX, camY;
 } Game_s;
@@ -31,7 +32,6 @@ typedef struct {
 
 Game_s initScene(Game_s game);
 void prepareScene(SDL_Renderer *renderer);
-void addSquare(Game_s* game, int x, int y, int width, int height, SDL_Color color, Entity *square);
 void updateCamera(Game_s *game, Entity *player);
 void renderGameObjects(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]);
 
@@ -48,6 +48,6 @@ void doKeyUp(Game_s *game, Entity *player, SDL_KeyboardEvent *event);
 void cleanupGame(Game_s game);
 
 void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]);
-void renderMap(SDL_Renderer* renderer, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]);
+void renderMap(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]);
 
 #endif
