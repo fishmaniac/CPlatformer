@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\Shooter.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\Shooter.dir/objects.a @CMakeFiles\Shooter.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -Wl,--undefined=WinMain -Wl,--whole-archive CMakeFiles\Shooter.dir/objects.a -Wl,--no-whole-archive -o Shooter.exe -Wl,--out-implib,libShooter.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Shooter.dir\linkLibs.rsp

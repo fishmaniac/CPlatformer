@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/Shooter.dir/includes_C.rsp  -o CMakeFiles\\Shooter.dir\\main.c.obj -c C:\\Users\\Oakspirit\\Documents\\0Coding\\C\\SDLShooter\\main.c",
+  "file": "C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/main.c",
+  "output": "CMakeFiles/Shooter.dir/main.c.obj"
+},
+{
+  "directory": "C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/Shooter.dir/includes_C.rsp  -o CMakeFiles\\Shooter.dir\\structs.c.obj -c C:\\Users\\Oakspirit\\Documents\\0Coding\\C\\SDLShooter\\structs.c",
+  "file": "C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/structs.c",
+  "output": "CMakeFiles/Shooter.dir/structs.c.obj"
+},
+{
+  "directory": "C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/Shooter.dir/includes_C.rsp  -o CMakeFiles\\Shooter.dir\\scene.c.obj -c C:\\Users\\Oakspirit\\Documents\\0Coding\\C\\SDLShooter\\scene.c",
+  "file": "C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/scene.c",
+  "output": "CMakeFiles/Shooter.dir/scene.c.obj"
+}
+]
