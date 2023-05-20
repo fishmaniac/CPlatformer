@@ -56,16 +56,15 @@ void gameLoop(Game_s *game, Entity *player, Entity *environment, Tile tileMap[MA
 
 		if (game->jump) {
 /* 			player->y -= 50; */
-			if (game->jumpDuration > 0 && player->isColliding) {
+			if (game->jumpDuration > 0) {
 				player->y -= JUMP_HEIGHT;
-/* 				game->jumpDuration--; */
+				game->jumpDuration--;
 				if (game->jumpDuration == 0) {
 					player->isJumping = false;
 				}
 			}
 			else {
 				game->jump = 0;
-				//~!~!~!~##FIXME##~!~!~!~
 				if (player->texture == player->idleR || player->texture == player->runR || player->texture == player->jumpR) {
 					player->texture = player->idleR;
 				}

@@ -34,8 +34,10 @@ void blitAnimated(Game_s *game, Entity *player) {
 	
 	
 	SDL_RenderCopy(game->renderer, player->texture, &src, &player->entityRect);
-	player->entityRect.x += (player->entityRect.w / 6);
-	player->entityRect.w /= 3;
+
+	//Shrinks hitbox to feet, decrease width
+	player->entityRect.x += (player->entityRect.w / COLLISION_MARGIN);
+	player->entityRect.w /= (COLLISION_MARGIN / 2);
 	player->entityRect.y += player->entityRect.h - (player->entityRect.h / player->entityRect.h);
 	player->entityRect.h /= player->entityRect.h;
 

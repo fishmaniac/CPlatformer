@@ -13,7 +13,7 @@
 #define PROJECT_NAME "SdlGame"
 #define MAX_ENTITIES 10
 #define PLAYER_SPEED 10
-#define JUMP_HEIGHT 64
+#define JUMP_HEIGHT 32
 #define MAX_JUMP_DURATION 16
 #define FRAME_TIME 16
 #define GRAVITY 5
@@ -24,4 +24,4 @@
 
 #define CAMERA_SPEED 10
 
-#define COLLISION_MARGIN 10
+#define COLLISION_MARGIN 6

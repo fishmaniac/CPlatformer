@@ -31,7 +31,7 @@ void doKeyDown(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
 			player->texture = player->runR;
 			player->numFrames = 12;
 		}
-		if (event->keysym.scancode == SDL_SCANCODE_SPACE) {
+		if (event->keysym.scancode == SDL_SCANCODE_SPACE && player->isColliding) {
 			game->jump = 1;
 			game->jumpDuration = MAX_JUMP_DURATION;
 			if (player->texture == player->idleR || player->texture == player->runR) {
