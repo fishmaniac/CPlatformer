@@ -20,18 +20,13 @@ SDL_Texture *loadTexture(Game_s game, char *filename) {
 void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for (int x = 0; x < MAP_WIDTH; x++) {
-			tileMap[y][x].type = 0; // Set all tiles initially as empty
+			tileMap[y][x].type = 0;
 
-			// Set the position and size of the tile
 			tileMap[y][x].rect.x = x * TILE_SIZE;
 			tileMap[y][x].rect.y = y * TILE_SIZE;
 			tileMap[y][x].rect.w = TILE_SIZE;
 			tileMap[y][x].rect.h = TILE_SIZE;
 		}
-	}
-
-	for (int x = 0; x < MAP_WIDTH; x++) {
-		tileMap[MAP_HEIGHT - 1][x].type = 2;
 	}
 }
 
@@ -109,7 +104,36 @@ void renderTexture(Game_s *game, Entity *player) {
 	}
 }
 
+// void readMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH], char level[20]) {
+// 	FILE *file;
+// 	int value, height = 0, width = 0;
+//
+//
+// 	if (fopen_s(&file, level, "r") != 0) {
+// 		SDL_LogCritical(SDL_LOG_CATEGORY_APPLICATION, "UNABLE TO LOAD FILE %s\n", level);
+// 		exit(1);
+// 	}
+// 	else {
+// 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Successfully loaded file: %s\n", level);
+//
+// 		while (fscanf_s(file, "%d", &value) == 1 && width < MAP_WIDTH && height < MAP_HEIGHT) {
+// 			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading h: %d w: %d value %d\n", height, width, value);
+//
+// 			if (width == MAP_WIDTH - 1) {
+// 				width = 0;
+// 				height++;
+// 			}
+// 			tileMap[height][width].type = value;
+// 			width++;
+// 		}
+// 	}
+// 	fclose(file);
+// }
+
 void testMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+	for (int x = 0; x < MAP_WIDTH; x++) {
+		tileMap[MAP_HEIGHT - 1][x].type = 2;
+	}
 	tileMap[MAP_HEIGHT - 8][2].type = 2;
 	tileMap[MAP_HEIGHT - 8][3].type = 2;
 	tileMap[MAP_HEIGHT - 8][4].type = 2;

@@ -27,9 +27,6 @@
 #define COLLISION_MARGIN 6
 
 #define COLOR_WHITE (SDL_Color){255, 255, 255, 255}
-
 #define COLOR_BLACK (SDL_Color){0, 0, 0, 255}
-
 #define COLOR_BLUE (SDL_Color){101, 189, 255, 255}
-
 #define COLOR_GREEN (SDL_Color){24, 175, 0, 255}

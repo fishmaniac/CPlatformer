@@ -14,6 +14,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	game = initScene(game);
 	initMap(tileMap);
 	testMap(tileMap);
+	// readMap(tileMap, "level0.txt");
 
 	initPlayer(&player, &game);
 
