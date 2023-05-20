@@ -6,22 +6,26 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-//^^REPLACE WITH WIN32 MAIN FUNCTION
 
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
 #define PROJECT_NAME "SdlGame"
 #define MAX_ENTITIES 10
-#define PLAYER_SPEED 10
-#define JUMP_HEIGHT 32
-#define MAX_JUMP_DURATION 16
 #define FRAME_TIME 16
 #define GRAVITY 5
+
+#define PLAYER_SPEED 10
+#define CAMERA_SPEED 10
+#define JUMP_HEIGHT 32
+#define MAX_JUMP_DURATION 16
 
 #define MAP_WIDTH 200
 #define MAP_HEIGHT 30
 #define TILE_SIZE 32
-
-#define CAMERA_SPEED 10
-
 #define COLLISION_MARGIN 6
+
+#define COLOR_WHITE (SDL_Color){255, 255, 255, 255}
+
+#define COLOR_BLACK (SDL_Color){0, 0, 0, 255}
+
+#define COLOR_BLUE (SDL_Color){101, 189, 255, 255}
