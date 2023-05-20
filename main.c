@@ -16,8 +16,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	game = initScene(game);
 	initMap(tileMap);
 
-	player.x = SCREEN_WIDTH / 2;
-	player.y = SCREEN_HEIGHT - 200;
+	player.x = 0;
+	player.y = SCREEN_HEIGHT - (MAP_HEIGHT * TILE_SIZE);
 	player.scaling = 2.5;
 	player.numFrames = 4;
 	player.animationDelay = 128;
@@ -79,7 +79,6 @@ void gameLoop(Game_s *game, Entity *player, Entity *environment, Tile tileMap[MA
 		}
 		
 
-/* 		handleCollisions(player, &environment[0], 2); */
 		
 		renderGameObjects(game, player, tileMap);
 		updateCamera(game, player);

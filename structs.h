@@ -17,12 +17,13 @@ typedef struct {
 } Game_s;
 
 typedef struct {
-	int x, y, jY, w, h, health;
+	int x, y, jY, pY, w, h, health;
 	float scaling, vX, vY;
 	bool isJumping, isColliding;
 	Uint32 currentFrame, numFrames, animationDelay;
 	SDL_Texture *texture;
 	SDL_Color color;
+	SDL_Rect entityRect;
 } Entity;
 
 typedef struct {
@@ -38,8 +39,9 @@ void renderGameObjects(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MA
 SDL_Texture *loadTexture(Game_s game, char *filename);
 // void blit(Game_s *game, Entity *player);
 void blitAnimated(Game_s *game, Entity *player);
-bool checkCollision(Entity *rect1, Entity *rect2);
-void handleCollisions(Entity *player, Entity *environment, int numEntities);
+bool checkCollision(SDL_Rect rectA, SDL_Rect rectB);
+bool checkCollisionBottom(SDL_Rect rectA, SDL_Rect rectB);
+void handleCollisions(Entity *player, Tile *tileMap);
 
 
 void doInput(Game_s *game, Entity *player);

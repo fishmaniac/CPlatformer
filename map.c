@@ -1,4 +1,5 @@
 #include "structs.h"
+#include <stdbool.h>
 
 void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
     for (int y = 0; y < MAP_HEIGHT; y++) {
@@ -13,6 +14,22 @@ void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
         }
     }
 
+    for (int x = 0; x < MAP_WIDTH; x++) {
+        tileMap[MAP_HEIGHT - 1][x].type = 2;
+    }
+
+    tileMap[MAP_HEIGHT - 8][2].type = 2;
+    tileMap[MAP_HEIGHT - 8][3].type = 2;
+    tileMap[MAP_HEIGHT - 8][4].type = 2;
+    tileMap[MAP_HEIGHT - 8][5].type = 2;
+    tileMap[MAP_HEIGHT - 8][6].type = 2;
+
+    tileMap[MAP_HEIGHT - 3][10].type = 2;
+    tileMap[MAP_HEIGHT - 3][11].type = 2;
+    tileMap[MAP_HEIGHT - 3][12].type = 2;
+    tileMap[MAP_HEIGHT - 3][13].type = 2;
+    tileMap[MAP_HEIGHT - 3][14].type = 2;
+
     // Example: Set some tiles as tiles
     tileMap[3][3].type = 2;
     tileMap[3][4].type = 2;
@@ -23,6 +40,9 @@ void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 }
 
 void renderMap(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+    player->isColliding = false;
+    int collidingTiles = 0;
+
     for (int y = 0; y < MAP_HEIGHT; y++) {
         for (int x = 0; x < MAP_WIDTH; x++) {
             Tile tile = tileMap[y][x];
@@ -35,13 +55,28 @@ void renderMap(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]
                 color = (SDL_Color){0, 0, 0, 255}; // Black for empty tiles
             }
 
-            // Render relative to camera
-            // (&tile.rect)->x = player->x;
-            // (&tile.rect)->y = player->y;
             tile.rect.x -= (game->camX);
             tile.rect.y -= (game->camY);
+            
             SDL_SetRenderDrawColor(game->renderer, color.r, color.g, color.b, color.a);
             SDL_RenderFillRect(game->renderer, &tile.rect);
+
+            if (tile.type != 0 && checkCollisionBottom(player->entityRect, tile.rect)) {
+                collidingTiles++;
+
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Colliding with entity: %d %d\nPlayer height: %d", y, x, player->y);
+            }
+            else {
+                player->isColliding = false;
+            }
         }
     }
+    if (collidingTiles > 0) {
+        player->isColliding = true;
+    }
+
+    if (!player->isColliding) {
+        player->y += FRAME_TIME;
+    }
 }
+
