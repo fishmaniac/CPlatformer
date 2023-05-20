@@ -67,7 +67,8 @@ void renderMap(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]
             SDL_SetRenderDrawColor(game->renderer, color.r, color.g, color.b, color.a);
             SDL_RenderFillRect(game->renderer, &tile.rect);
 
-            if (tile.type != 0 && checkCollisionBottom(player->entityRect, tile.rect)) {
+/*             if (tile.type != 0 && checkCollisionBottom(player->entityRect, tile.rect)) { */
+            if (tile.type != 0 && SDL_HasIntersection(player->entityRect, tile.rect)) {
                 collidingTiles++;
 
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Colliding with entity: %d %d\nPlayer height: %d", y, x, player->y);
