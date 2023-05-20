@@ -21,7 +21,7 @@
 #define JUMP_HEIGHT 32
 #define MAX_JUMP_DURATION 16
 
-#define MAP_WIDTH 200
+#define MAP_WIDTH 300
 #define MAP_HEIGHT 30
 #define TILE_SIZE 32
 #define COLLISION_MARGIN 6

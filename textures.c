@@ -1,6 +1,6 @@
 #include "structs.h"
 
-void renderGameObjects(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+void renderGameObjects(Game_s *game, Entity_s *player, Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	renderMap(game, player, tileMap);
 	blitAnimated(game, player);
 	SDL_RenderPresent(game->renderer);
@@ -17,7 +17,7 @@ SDL_Texture *loadTexture(Game_s game, char *filename) {
 	return texture;
 }
 
-void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+void initMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for (int x = 0; x < MAP_WIDTH; x++) {
 			tileMap[y][x].type = 0;
@@ -30,13 +30,13 @@ void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	}
 }
 
-void renderMap(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+void renderMap(Game_s *game, Entity_s *player, Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	player->isColliding = false;
 	int collidingTiles = 0;
 
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for (int x = 0; x < MAP_WIDTH; x++) {
-			Tile tile = tileMap[y][x];
+			Tile_s tile = tileMap[y][x];
 
 			// Set the tile color based on its type
 			SDL_Color color;
@@ -75,7 +75,7 @@ void renderMap(Game_s *game, Entity *player, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]
 	}
 }
 
-void renderTexture(Game_s *game, Entity *player) {
+void renderTexture(Game_s *game, Entity_s *player) {
 	if (game->left) {
 		player->texture = player->runL;
 		player->numFrames = 12;
@@ -104,7 +104,7 @@ void renderTexture(Game_s *game, Entity *player) {
 	}
 }
 
-// void readMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH], char level[20]) {
+// void readMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH], char level[20]) {
 // 	FILE *file;
 // 	int value, height = 0, width = 0;
 //
@@ -114,23 +114,41 @@ void renderTexture(Game_s *game, Entity *player) {
 // 		exit(1);
 // 	}
 // 	else {
-// 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Successfully loaded file: %s\n", level);
-//
-// 		while (fscanf_s(file, "%d", &value) == 1 && width < MAP_WIDTH && height < MAP_HEIGHT) {
-// 			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading h: %d w: %d value %d\n", height, width, value);
-//
+// 		//fseek(file, 0L, SEEK_SET );
+// 		while (fscanf_s(file, "%d%*c", &value, 1) != 0 && width < MAP_WIDTH && height < MAP_HEIGHT) {	
 // 			if (width == MAP_WIDTH - 1) {
 // 				width = 0;
 // 				height++;
 // 			}
 // 			tileMap[height][width].type = value;
+// 			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading h: %d w: %d value %d\n", height, width, tileMap[height][width].type);
 // 			width++;
 // 		}
 // 	}
 // 	fclose(file);
 // }
+//
+void readMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH], char level[20]) {
+	FILE *file = fopen(level, "r");
+	char value;
+	
+	if (file == NULL) {
+		SDL_LogCritical(SDL_LOG_CATEGORY_APPLICATION, "UNABLE TO LOAD FILE %s\n", level);
+ 		exit(1);
+	}
+	else {
+		for (int y = 0; y < MAP_HEIGHT; y++) {
+			for (int x = 0; x < MAP_WIDTH; x++) {
+				fscanf(file, "%c ", &value);
+				tileMap[y][x].type = ((int) value) - '0';
+				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading h: %d w: %d value %d\n", y, x, tileMap[y][x].type);
+			}
+		}
+	}
+	fclose(file);
+}
 
-void testMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+void testMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	for (int x = 0; x < MAP_WIDTH; x++) {
 		tileMap[MAP_HEIGHT - 1][x].type = 2;
 	}
@@ -167,3 +185,4 @@ void testMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	tileMap[4][4].type = 2;
 	tileMap[4][5].type = 2;
 }
+

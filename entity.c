@@ -1,6 +1,6 @@
 #include "structs.h"
 
-void blitAnimated(Game_s *game, Entity *player) {
+void blitAnimated(Game_s *game, Entity_s *player) {
 	SDL_Rect src;  // Rect representing the source frame within the texture
 
 	int textureWidth, textureHeight;
@@ -41,7 +41,7 @@ bool checkCollision(SDL_Rect rectA, SDL_Rect rectB) {
 	);
 }
 
-void initPlayer(Entity *player, Game_s *game) {
+void initPlayer(Entity_s *player, Game_s *game) {
 	player->x = 0;
 	player->y = SCREEN_HEIGHT - (MAP_HEIGHT * TILE_SIZE);
 	player->speed = PLAYER_SPEED;

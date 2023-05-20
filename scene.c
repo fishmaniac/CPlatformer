@@ -17,12 +17,12 @@ void prepareScene(SDL_Renderer *renderer) {
 	SDL_RenderClear(renderer);
 }
 
-void updateCamera(Game_s *game, Entity *player) {
+void updateCamera(Game_s *game, Entity_s *player) {
 	game->camX = player->x - (SCREEN_WIDTH / 2);
 	game->camY = player->y - (SCREEN_HEIGHT / 2);
 }
 
-void doInput(Game_s *game, Entity *player) {
+void doInput(Game_s *game, Entity_s *player) {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
@@ -41,7 +41,7 @@ void doInput(Game_s *game, Entity *player) {
 	}
 }
 
-void doKeyDown(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
+void doKeyDown(Game_s *game, Entity_s *player, SDL_KeyboardEvent *event) {
 	if (event->repeat == 0) {
 		if (event->keysym.scancode == SDL_SCANCODE_A) {
 			game->left = true;
@@ -67,7 +67,7 @@ void doKeyDown(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
 
 }
 
-void doKeyUp(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
+void doKeyUp(Game_s *game, Entity_s *player, SDL_KeyboardEvent *event) {
 	if (event->repeat == 0) {
 		if (event->keysym.scancode == SDL_SCANCODE_A) {
 			game->left = false;
@@ -82,7 +82,7 @@ void doKeyUp(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
 	}
 }
 
-void handleMovement(Game_s *game, Entity *player) {
+void handleMovement(Game_s *game, Entity_s *player) {
 	if (game->jump) {
 		if (game->jumpDuration > 0) {
 			player->y -= JUMP_HEIGHT;
@@ -96,7 +96,7 @@ void handleMovement(Game_s *game, Entity *player) {
 		}
 	}
 	if (game->left) {
-			player->x -= player->speed;
+		player->x -= player->speed;
 		}
 		if (game->right) {
 			player->x += player->speed;

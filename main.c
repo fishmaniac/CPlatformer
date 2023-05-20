@@ -2,19 +2,18 @@
 #include "structs.h"
 
 Game_s testShape(Game_s game);
-void gameLoop(Game_s *game, Entity *player, Entity *environment, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]);
+void gameLoop(Game_s *game, Entity_s *player, Entity_s *environment, Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-	
-	Tile tileMap[MAP_HEIGHT][MAP_WIDTH];
+	Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH];
 	Game_s game;
-	Entity player;
-	Entity environment[MAX_ENTITIES];
+	Entity_s player;
+	Entity_s environment[MAX_ENTITIES];
 
 	game = initScene(game);
 	initMap(tileMap);
-	testMap(tileMap);
-	// readMap(tileMap, "level0.txt");
+	//testMap(tileMap);
+	readMap(tileMap, "level0.txt");
 
 	initPlayer(&player, &game);
 
@@ -28,7 +27,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	return 0;
 }
 
-void gameLoop(Game_s *game, Entity *player, Entity *environment, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+void gameLoop(Game_s *game, Entity_s *player, Entity_s *environment, Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	Uint32 lastFrameTime = SDL_GetTicks();
 
 	while (1) {
