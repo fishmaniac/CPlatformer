@@ -21,8 +21,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	player.scaling = 2.5;
 	player.numFrames = 4;
 	player.animationDelay = 128;
-	player.texture = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle.png");
 	player.isJumping = false;
+
+
+	player.idleR = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle.png");
+	player.idleL = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle-left.png");
+	player.runL = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-run-left.png");
+	player.runR = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-run.png");
+	player.jumpL = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-jump-left.png");
+	player.jumpR = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-jump.png");
+
+	player.texture = player.idleR;
+	
 
 	game.camX = (SCREEN_WIDTH / 2);
 	game.camY = (SCREEN_HEIGHT / 2);
@@ -39,7 +49,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 void gameLoop(Game_s *game, Entity *player, Entity *environment, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	Uint32 lastFrameTime = SDL_GetTicks();
-/* 	SDL_Color color = {255, 0, 0, 255}; */
 
 	while (1) {
 		prepareScene(game->renderer);
@@ -47,16 +56,22 @@ void gameLoop(Game_s *game, Entity *player, Entity *environment, Tile tileMap[MA
 
 		if (game->jump) {
 /* 			player->y -= 50; */
-			if (game->jumpDuration > 0) {
+			if (game->jumpDuration > 0 && player->isColliding) {
 				player->y -= JUMP_HEIGHT;
-				game->jumpDuration--;
+/* 				game->jumpDuration--; */
 				if (game->jumpDuration == 0) {
 					player->isJumping = false;
 				}
 			}
 			else {
 				game->jump = 0;
-				player->texture = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle.png");
+				//~!~!~!~##FIXME##~!~!~!~
+				if (player->texture == player->idleR || player->texture == player->runR || player->texture == player->jumpR) {
+					player->texture = player->idleR;
+				}
+				else {
+				player->texture = player->idleL;
+				}
 				player->numFrames = 4;
 			}
 		}

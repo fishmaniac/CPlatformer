@@ -23,18 +23,23 @@ void doKeyDown(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
 	if (event->repeat == 0) {
 		if (event->keysym.scancode == SDL_SCANCODE_A) {
 			game->left = 1;
-			player->texture = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-run-left.png");
+			player->texture = player->runL;
 			player->numFrames = 12;
 		}
 		if (event->keysym.scancode == SDL_SCANCODE_D) {
 			game->right = 1;
-			player->texture = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-run.png");
+			player->texture = player->runR;
 			player->numFrames = 12;
 		}
-		if (event->keysym.scancode == SDL_SCANCODE_SPACE && !player->isJumping) {
+		if (event->keysym.scancode == SDL_SCANCODE_SPACE) {
 			game->jump = 1;
 			game->jumpDuration = MAX_JUMP_DURATION;
-			player->texture = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-jump.png");
+			if (player->texture == player->idleR || player->texture == player->runR) {
+				player->texture = player->jumpR;
+			}
+			else {
+				player->texture = player->jumpL;
+			}
 			player->numFrames = 5;
 		}
 		if (event->keysym.scancode == SDL_SCANCODE_Q) {
@@ -48,12 +53,12 @@ void doKeyUp(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
 	if (event->repeat == 0) {
 		if (event->keysym.scancode == SDL_SCANCODE_A) {
 			game->left = 0;
-			player->texture = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle-left.png");
+			player->texture = player->idleL;
 			player->numFrames = 4;
 		}
 		if (event->keysym.scancode == SDL_SCANCODE_D) {
 			game->right = 0;
-			player->texture = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle.png");
+			player->texture = player->idleR;
 			player->numFrames = 4;
 		}
 	}

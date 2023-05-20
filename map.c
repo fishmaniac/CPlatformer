@@ -24,6 +24,12 @@ void initMap(Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
     tileMap[MAP_HEIGHT - 8][5].type = 2;
     tileMap[MAP_HEIGHT - 8][6].type = 2;
 
+    tileMap[MAP_HEIGHT - 5][7].type = 2;
+
+    tileMap[MAP_HEIGHT - 8][10].type = 2;
+    tileMap[MAP_HEIGHT - 8][11].type = 2;
+    tileMap[MAP_HEIGHT - 8][12].type = 2;
+
     tileMap[MAP_HEIGHT - 3][10].type = 2;
     tileMap[MAP_HEIGHT - 3][11].type = 2;
     tileMap[MAP_HEIGHT - 3][12].type = 2;

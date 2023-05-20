@@ -13,7 +13,8 @@ typedef struct {
 	SDL_Window *window;
 	SDL_Rect camera;
 	bool up, down, left, right, jump, fire; 
-	int jumpDuration, camX, camY;
+	float jumpDuration;
+	int camX, camY;
 } Game_s;
 
 typedef struct {
@@ -21,7 +22,7 @@ typedef struct {
 	float scaling, vX, vY;
 	bool isJumping, isColliding;
 	Uint32 currentFrame, numFrames, animationDelay;
-	SDL_Texture *texture;
+	SDL_Texture *texture, *idleL, *idleR, *runL, *runR, *jumpL, *jumpR;
 	SDL_Color color;
 	SDL_Rect entityRect;
 } Entity;
