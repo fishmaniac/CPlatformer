@@ -44,14 +44,21 @@ void doInput(Game_s *game, Entity *player) {
 void doKeyDown(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
 	if (event->repeat == 0) {
 		if (event->keysym.scancode == SDL_SCANCODE_A) {
-			game->left = 1;
+			game->left = true;
 		}
 		if (event->keysym.scancode == SDL_SCANCODE_D) {
-			game->right = 1;
+			game->right = true;
 		}
 		if (event->keysym.scancode == SDL_SCANCODE_SPACE && player->isColliding) {
-			game->jump = 1;
+			game->jump = true;
 			game->jumpDuration = MAX_JUMP_DURATION;
+		}
+		if (event->keysym.scancode == SDL_SCANCODE_S && player->isColliding && (player->tile == 3)) {
+			player->y += TILE_SIZE;
+		}
+		if (event->keysym.scancode == SDL_SCANCODE_LSHIFT && player->stamina > 0 && !game->sprint) {	
+			player->speed *= SPRINT_SCALAR;
+			game->sprint = true;
 		}
 		if (event->keysym.scancode == SDL_SCANCODE_Q) {
 			exit(0);
@@ -63,16 +70,49 @@ void doKeyDown(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
 void doKeyUp(Game_s *game, Entity *player, SDL_KeyboardEvent *event) {
 	if (event->repeat == 0) {
 		if (event->keysym.scancode == SDL_SCANCODE_A) {
-			game->left = 0;
-			// player->texture = player->idleL;
-			// player->numFrames = 4;
+			game->left = false;
 		}
 		if (event->keysym.scancode == SDL_SCANCODE_D) {
-			game->right = 0;
-			// player->texture = player->idleR;
-			// player->numFrames = 4;
+			game->right = false;
+		}
+		if (event->keysym.scancode == SDL_SCANCODE_LSHIFT && player->stamina > 0 && game->sprint ) {
+			player->speed /= SPRINT_SCALAR;
+			game->sprint = false;
 		}
 	}
+}
+
+void handleMovement(Game_s *game, Entity *player) {
+	if (game->jump) {
+		if (game->jumpDuration > 0) {
+			player->y -= JUMP_HEIGHT;
+			game->jumpDuration--;
+			if (game->jumpDuration == 0) {
+				player->isJumping = false;
+			}
+			}
+		else {
+			game->jump = 0;
+		}
+	}
+	if (game->left) {
+			player->x -= player->speed;
+		}
+		if (game->right) {
+			player->x += player->speed;
+		}
+		if (game->sprint && player->stamina > 0 && (game->left || game->right)) {
+			if (game->left || game->right) {
+				player->stamina--;
+			}
+			if (player->stamina == 0 && game->sprint) {
+				player->speed /= SPRINT_SCALAR;
+				game->sprint = false;
+			}
+		}
+		if ((!game->sprint || ((!game->left && !game->right)) ) && player->stamina < PLAYER_STAMINA) {
+			player->stamina++;
+		}
 }
 
 void cleanupGame(Game_s game) {

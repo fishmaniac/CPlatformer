@@ -40,3 +40,22 @@ bool checkCollision(SDL_Rect rectA, SDL_Rect rectB) {
 	rectB.y + rectB.h >= rectA.y
 	);
 }
+
+void initPlayer(Entity *player, Game_s *game) {
+	player->x = 0;
+	player->y = SCREEN_HEIGHT - (MAP_HEIGHT * TILE_SIZE);
+	player->speed = PLAYER_SPEED;
+	player->stamina = PLAYER_STAMINA;
+	player->scaling = 2.5;
+	player->numFrames = 4;
+	player->animationDelay = 128;
+	player->isJumping = false;
+	player->idleR = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle.png");
+	player->idleL = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle-left.png");
+	player->runL = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-run-left.png");
+	player->runR = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-run.png");
+	player->jumpL = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-jump-left.png");
+	player->jumpR = loadTexture(*game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-jump.png");
+
+	player->texture = player->idleR;
+}

@@ -13,21 +13,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	game = initScene(game);
 	initMap(tileMap);
+	testMap(tileMap);
 
-	player.x = 0;
-	player.y = SCREEN_HEIGHT - (MAP_HEIGHT * TILE_SIZE);
-	player.scaling = 2.5;
-	player.numFrames = 4;
-	player.animationDelay = 128;
-	player.isJumping = false;
-	player.idleR = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle.png");
-	player.idleL = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-idle-left.png");
-	player.runL = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-run-left.png");
-	player.runR = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-run.png");
-	player.jumpL = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-jump-left.png");
-	player.jumpR = loadTexture(game, "assets/gothicvania/Gothic-hero-Files/PNG/gothic-hero-jump.png");
-
-	player.texture = player.idleR;
+	initPlayer(&player, &game);
 
 	game.camX = (SCREEN_WIDTH / 2);
 	game.camY = (SCREEN_HEIGHT / 2);
@@ -45,27 +33,9 @@ void gameLoop(Game_s *game, Entity *player, Entity *environment, Tile tileMap[MA
 	while (1) {
 		prepareScene(game->renderer);
 		doInput(game, player);
-
-		if (game->jump) {
-			if (game->jumpDuration > 0) {
-				player->y -= JUMP_HEIGHT;
-				game->jumpDuration--;
-				if (game->jumpDuration == 0) {
-					player->isJumping = false;
-				}
-			}
-			else {
-				game->jump = 0;
-			}
-		}
-		if (game->left) {
-			player->x -= PLAYER_SPEED;
-		}
-		if (game->right) {
-			player->x += PLAYER_SPEED;
-		}
+		handleMovement(game, player);
 		
-		
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Player speed: %d\nPlayer stamina: %d\n", player->speed, player->stamina);
 		Uint32 currentFrameTime = SDL_GetTicks();
 		Uint32 frameDuration = currentFrameTime - lastFrameTime;
 
@@ -74,7 +44,6 @@ void gameLoop(Game_s *game, Entity *player, Entity *environment, Tile tileMap[MA
 			lastFrameTime = currentFrameTime;
 		}
 		
-
 		
 		renderGameObjects(game, player, tileMap);
 		updateCamera(game, player);

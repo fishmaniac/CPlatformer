@@ -13,8 +13,10 @@
 #define MAX_ENTITIES 10
 #define FRAME_TIME 16
 #define GRAVITY 5
+#define SPRINT_SCALAR 2
 
 #define PLAYER_SPEED 10
+#define PLAYER_STAMINA 100
 #define CAMERA_SPEED 10
 #define JUMP_HEIGHT 32
 #define MAX_JUMP_DURATION 16
@@ -29,3 +31,5 @@
 #define COLOR_BLACK (SDL_Color){0, 0, 0, 255}
 
 #define COLOR_BLUE (SDL_Color){101, 189, 255, 255}
+
+#define COLOR_GREEN (SDL_Color){24, 175, 0, 255}
