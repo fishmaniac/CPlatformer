@@ -4,7 +4,11 @@
 Game_s testShape(Game_s game);
 void gameLoop(Game_s *game, Entity_s *player, Entity_s *environment, Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]);
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+#ifdef _WIN32
+#define SDL_MAIN_HANDLED
+#endif
+
+int main(int argc, char* argv[]) {
 	Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH];
 	Game_s game;
 	Entity_s player;
