@@ -40,7 +40,6 @@ int main(int argc, char* argv[]) {
 
 void gameLoop(Game_s *game, Entity_s *player, Entity_s *environment, Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]) {
 	Uint32 lastFrameTime = SDL_GetTicks();
-
 	while (1) {
 		prepareScene(game->renderer);
 		doInput(game, player);
@@ -49,7 +48,7 @@ void gameLoop(Game_s *game, Entity_s *player, Entity_s *environment, Tile_s tile
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Player speed: %d\nPlayer stamina: %d\n", player->speed, player->stamina);
 		Uint32 currentFrameTime = SDL_GetTicks();
 		Uint32 frameDuration = currentFrameTime - lastFrameTime;
-
+		
 		if (frameDuration >= player->animationDelay) {
 			player->currentFrame = (player->currentFrame + 1) % player->numFrames;
 			lastFrameTime = currentFrameTime;

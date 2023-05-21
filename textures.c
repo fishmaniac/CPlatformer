@@ -141,7 +141,7 @@ void readMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH], char level[]) {
 			for (int x = 0; x < MAP_WIDTH; x++) {
 				fscanf(file, "%c ", &value);
 				tileMap[y][x].type = ((int) value) - '0';
-				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading h: %d w: %d value %d\n", y, x, tileMap[y][x].type);
+				/* SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading h: %d w: %d value %d\n", y, x, tileMap[y][x].type); */
 			}
 		}
 	}
