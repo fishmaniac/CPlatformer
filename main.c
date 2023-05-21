@@ -5,7 +5,14 @@ Game_s testShape(Game_s game);
 void gameLoop(Game_s *game, Entity_s *player, Entity_s *environment, Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]);
 
 #ifdef _WIN32
+#ifdef _WIN64
 #define SDL_MAIN_HANDLED
+
+int WinMain(int argc, char* argv[]) {
+    SDL_SetMainReady();
+    return main(argc, argv);
+}
+#endif
 #endif
 
 int main(int argc, char* argv[]) {

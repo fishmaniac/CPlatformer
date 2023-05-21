@@ -1,3 +1,0 @@
-C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/build/CMakeFiles/Shooter.dir
-C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/build/CMakeFiles/edit_cache.dir
-C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/build/CMakeFiles/rebuild_cache.dir

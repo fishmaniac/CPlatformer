@@ -1,1 +1,0 @@
-  -LC:/Users/Oakspirit/Documents/0Coding/C++/Libraries/SDL2/lib  C:/Users/Oakspirit/Documents/0Coding/C++/Libraries/SDL2/lib/libSDL2main.a C:/Users/Oakspirit/Documents/0Coding/C++/Libraries/SDL2/lib/libSDL2.dll.a -mwindows -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
