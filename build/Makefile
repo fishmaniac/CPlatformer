@@ -128,6 +128,30 @@ Shooter/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/build
 .PHONY : Shooter/fast
 
+entity.obj: entity.c.obj
+.PHONY : entity.obj
+
+# target to build an object file
+entity.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/entity.c.obj
+.PHONY : entity.c.obj
+
+entity.i: entity.c.i
+.PHONY : entity.i
+
+# target to preprocess a source file
+entity.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/entity.c.i
+.PHONY : entity.c.i
+
+entity.s: entity.c.s
+.PHONY : entity.s
+
+# target to generate assembly for a file
+entity.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/entity.c.s
+.PHONY : entity.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -176,29 +200,29 @@ scene.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/scene.c.s
 .PHONY : scene.c.s
 
-structs.obj: structs.c.obj
-.PHONY : structs.obj
+textures.obj: textures.c.obj
+.PHONY : textures.obj
 
 # target to build an object file
-structs.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/structs.c.obj
-.PHONY : structs.c.obj
+textures.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/textures.c.obj
+.PHONY : textures.c.obj
 
-structs.i: structs.c.i
-.PHONY : structs.i
+textures.i: textures.c.i
+.PHONY : textures.i
 
 # target to preprocess a source file
-structs.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/structs.c.i
-.PHONY : structs.c.i
+textures.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/textures.c.i
+.PHONY : textures.c.i
 
-structs.s: structs.c.s
-.PHONY : structs.s
+textures.s: textures.c.s
+.PHONY : textures.s
 
 # target to generate assembly for a file
-structs.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/structs.c.s
-.PHONY : structs.c.s
+textures.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Shooter.dir\build.make CMakeFiles/Shooter.dir/textures.c.s
+.PHONY : textures.c.s
 
 # Help Target
 help:
@@ -209,15 +233,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Shooter
+	@echo ... entity.obj
+	@echo ... entity.i
+	@echo ... entity.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
 	@echo ... scene.obj
 	@echo ... scene.i
 	@echo ... scene.s
-	@echo ... structs.obj
-	@echo ... structs.i
-	@echo ... structs.s
+	@echo ... textures.obj
+	@echo ... textures.i
+	@echo ... textures.s
 .PHONY : help
 
 

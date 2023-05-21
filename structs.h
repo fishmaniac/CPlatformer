@@ -45,7 +45,7 @@ SDL_Texture *loadTexture(Game_s game, char *filename);
 void initMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]);
 void renderMap(Game_s *game, Entity_s *player, Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]);
 void renderTexture(Game_s *game, Entity_s *player);
-void readMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH], char level[20]);
+void readMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH], char level[]);
 void testMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH]);
 
 //entity.c

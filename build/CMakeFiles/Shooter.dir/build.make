@@ -83,20 +83,20 @@ CMakeFiles/Shooter.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Shooter.dir/main.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\main.c -o CMakeFiles\Shooter.dir\main.c.s
 
-CMakeFiles/Shooter.dir/structs.c.obj: CMakeFiles/Shooter.dir/flags.make
-CMakeFiles/Shooter.dir/structs.c.obj: CMakeFiles/Shooter.dir/includes_C.rsp
-CMakeFiles/Shooter.dir/structs.c.obj: C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/structs.c
-CMakeFiles/Shooter.dir/structs.c.obj: CMakeFiles/Shooter.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Shooter.dir/structs.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Shooter.dir/structs.c.obj -MF CMakeFiles\Shooter.dir\structs.c.obj.d -o CMakeFiles\Shooter.dir\structs.c.obj -c C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\structs.c
+CMakeFiles/Shooter.dir/entity.c.obj: CMakeFiles/Shooter.dir/flags.make
+CMakeFiles/Shooter.dir/entity.c.obj: CMakeFiles/Shooter.dir/includes_C.rsp
+CMakeFiles/Shooter.dir/entity.c.obj: C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/entity.c
+CMakeFiles/Shooter.dir/entity.c.obj: CMakeFiles/Shooter.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Shooter.dir/entity.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Shooter.dir/entity.c.obj -MF CMakeFiles\Shooter.dir\entity.c.obj.d -o CMakeFiles\Shooter.dir\entity.c.obj -c C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\entity.c
 
-CMakeFiles/Shooter.dir/structs.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Shooter.dir/structs.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\structs.c > CMakeFiles\Shooter.dir\structs.c.i
+CMakeFiles/Shooter.dir/entity.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Shooter.dir/entity.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\entity.c > CMakeFiles\Shooter.dir\entity.c.i
 
-CMakeFiles/Shooter.dir/structs.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Shooter.dir/structs.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\structs.c -o CMakeFiles\Shooter.dir\structs.c.s
+CMakeFiles/Shooter.dir/entity.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Shooter.dir/entity.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\entity.c -o CMakeFiles\Shooter.dir\entity.c.s
 
 CMakeFiles/Shooter.dir/scene.c.obj: CMakeFiles/Shooter.dir/flags.make
 CMakeFiles/Shooter.dir/scene.c.obj: CMakeFiles/Shooter.dir/includes_C.rsp
@@ -113,25 +113,42 @@ CMakeFiles/Shooter.dir/scene.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Shooter.dir/scene.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\scene.c -o CMakeFiles\Shooter.dir\scene.c.s
 
+CMakeFiles/Shooter.dir/textures.c.obj: CMakeFiles/Shooter.dir/flags.make
+CMakeFiles/Shooter.dir/textures.c.obj: CMakeFiles/Shooter.dir/includes_C.rsp
+CMakeFiles/Shooter.dir/textures.c.obj: C:/Users/Oakspirit/Documents/0Coding/C/SDLShooter/textures.c
+CMakeFiles/Shooter.dir/textures.c.obj: CMakeFiles/Shooter.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Shooter.dir/textures.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Shooter.dir/textures.c.obj -MF CMakeFiles\Shooter.dir\textures.c.obj.d -o CMakeFiles\Shooter.dir\textures.c.obj -c C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\textures.c
+
+CMakeFiles/Shooter.dir/textures.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Shooter.dir/textures.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\textures.c > CMakeFiles\Shooter.dir\textures.c.i
+
+CMakeFiles/Shooter.dir/textures.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Shooter.dir/textures.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\textures.c -o CMakeFiles\Shooter.dir\textures.c.s
+
 # Object files for target Shooter
 Shooter_OBJECTS = \
 "CMakeFiles/Shooter.dir/main.c.obj" \
-"CMakeFiles/Shooter.dir/structs.c.obj" \
-"CMakeFiles/Shooter.dir/scene.c.obj"
+"CMakeFiles/Shooter.dir/entity.c.obj" \
+"CMakeFiles/Shooter.dir/scene.c.obj" \
+"CMakeFiles/Shooter.dir/textures.c.obj"
 
 # External object files for target Shooter
 Shooter_EXTERNAL_OBJECTS =
 
 Shooter.exe: CMakeFiles/Shooter.dir/main.c.obj
-Shooter.exe: CMakeFiles/Shooter.dir/structs.c.obj
+Shooter.exe: CMakeFiles/Shooter.dir/entity.c.obj
 Shooter.exe: CMakeFiles/Shooter.dir/scene.c.obj
+Shooter.exe: CMakeFiles/Shooter.dir/textures.c.obj
 Shooter.exe: CMakeFiles/Shooter.dir/build.make
 Shooter.exe: C:/Users/Oakspirit/Documents/0Coding/C++/Libraries/SDL2/lib/libSDL2main.a
 Shooter.exe: C:/Users/Oakspirit/Documents/0Coding/C++/Libraries/SDL2/lib/libSDL2.dll.a
 Shooter.exe: CMakeFiles/Shooter.dir/linkLibs.rsp
 Shooter.exe: CMakeFiles/Shooter.dir/objects1.rsp
 Shooter.exe: CMakeFiles/Shooter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable Shooter.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Oakspirit\Documents\0Coding\C\SDLShooter\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable Shooter.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Shooter.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

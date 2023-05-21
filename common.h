@@ -12,8 +12,7 @@
 #define PROJECT_NAME "SdlGame"
 #define MAX_ENTITIES 10
 #define FRAME_TIME 16
-#define GRAVITY 5
-#define SPRINT_SCALAR 2
+#define SPRINT_SCALAR 1.5
 
 #define PLAYER_SPEED 10
 #define PLAYER_STAMINA 100

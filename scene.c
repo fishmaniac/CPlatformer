@@ -4,7 +4,7 @@ Game_s initScene(Game_s game) {
 	SDL_Init(SDL_INIT_VIDEO);
 	IMG_Init(IMG_INIT_PNG);
 
-	game.window = SDL_CreateWindow(PROJECT_NAME, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN);
+	game.window = SDL_CreateWindow(PROJECT_NAME, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	game.renderer = SDL_CreateRenderer(game.window, -1, SDL_RENDERER_PRESENTVSYNC);
 	
 	prepareScene(game.renderer);
@@ -56,7 +56,7 @@ void doKeyDown(Game_s *game, Entity_s *player, SDL_KeyboardEvent *event) {
 		if (event->keysym.scancode == SDL_SCANCODE_S && player->isColliding && (player->tile == 3)) {
 			player->y += TILE_SIZE;
 		}
-		if (event->keysym.scancode == SDL_SCANCODE_LSHIFT && player->stamina > 0 && !game->sprint) {	
+		if (event->keysym.scancode == SDL_SCANCODE_LSHIFT && player->stamina > 0 && !game->sprint) {
 			player->speed *= SPRINT_SCALAR;
 			game->sprint = true;
 		}

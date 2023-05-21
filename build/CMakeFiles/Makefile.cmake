@@ -7,12 +7,9 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "C:/MinGW/lib/cmake/SDL2_image/sdl2_image-config-version.cmake"
-  "C:/MinGW/lib/cmake/SDL2_image/sdl2_image-config.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeCInformation.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeCXXInformation.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake"
-  "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeGenericSystem.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake"

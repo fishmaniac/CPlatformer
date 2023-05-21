@@ -128,7 +128,7 @@ void renderTexture(Game_s *game, Entity_s *player) {
 // 	fclose(file);
 // }
 //
-void readMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH], char level[20]) {
+void readMap(Tile_s tileMap[MAP_HEIGHT][MAP_WIDTH], char level[]) {
 	FILE *file = fopen(level, "r");
 	char value;
 	
